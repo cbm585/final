@@ -18,9 +18,35 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>Hello world!</title>
+    <title>Flyright</title>
   </head>
   <body>
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">Flyright</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <% if @current_user %>
+                    <li class="navbar-text">
+                        Logged in as <%= @current_user[:name] %>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                <% else %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/new">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logins/new">Sign In</a>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container mt-5">
       <%= yield %>

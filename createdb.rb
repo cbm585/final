@@ -5,31 +5,40 @@ DB = Sequel.connect(connection_string)                                          
 #######################################################################################
 
 # Database schema - this should reflect your domain model
-DB.create_table! :events do
+DB.create_table! :airlines do
   primary_key :id
-  String :title
-  String :description, text: true
-  String :date
-  String :location
+  String :name
+  String :founded
+  String :hq 
+  String :ceo 
+  String :destinations 
 end
-DB.create_table! :rsvps do
+DB.create_table! :votes do
   primary_key :id
-  foreign_key :event_id
-  Boolean :going
+  foreign_key :airline_id
+  foreign_key :user_id
+  Boolean :love
+  String :date
+  String :testimonial, text: true
+end
+DB.create_table! :users do
+  primary_key :id
   String :name
   String :email
-  String :comments, text: true
+  String :password
 end
 
 # Insert initial (seed) data
-events_table = DB.from(:events)
+airlines_table = DB.from(:airlines)
 
-events_table.insert(title: "Bacon Burger Taco Fest", 
-                    description: "Here we go again bacon burger taco fans, another Bacon Burger Taco Fest is here!",
-                    date: "June 21",
-                    location: "Kellogg Global Hub")
+airlines_table.insert(name: "United Airlines", 
+                    founded: "1892",
+                    hq: "Salt Lake City, Utah",
+                    ceo: "Fred Jones",
+                    destinations: "1,456")
 
-events_table.insert(title: "Kaleapolooza", 
-                    description: "If you're into nutrition and vitamins and stuff, this is the event for you.",
-                    date: "July 4",
-                    location: "Nowhere")
+airlines_table.insert(name: "American Airlines", 
+                    founded: "1876",
+                    hq: "New York, New York",
+                    ceo: "Beth Johnson",
+                    destinations: "1,786")

@@ -1,0 +1,26 @@
+<h1>Vote for <%= @airline[:name] %></h1>
+
+<form action="/airlines/<%= @airline[:id] %>/votes/create">
+  <div class="form-group">
+    <label>When did you use <%= @airline[:name] %> last?</label>
+    <input type="text" class="form-control">
+  </div>
+    <div class="form-group">
+        <div>
+        <label>Love or hate it?</label>
+        </div>
+        <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="love">
+         <label class="form-check-label" for="inlineRadio1">Loved it!</label>
+        </div>
+        <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="love">
+         <label class="form-check-label" for="inlineRadio2">Hated it!</label>
+        </div>
+    </div>
+  <div class="form-group">
+    <label>Provide Testimonial</label>
+    <textarea class="form-control" rows="4" name="testimonial"></textarea>
+  </div>
+  <a href="/airlines/<%= @airline[:id] %>/votes/create" class="btn btn-primary">Submit</a>
+</form>

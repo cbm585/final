@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-sm-7">
+        <h1>Browse Airlines</h1>
+        <p>Vote for your favorite airlines and provide testimonials about your experiences to help Kellogg students choose</p>
+
+        <% for airline in @airlines %>
+           <p><a href="/airlines/<%= airline[:id] %>"><%= airline[:name] %></a></p>
+        <% end %>
+    </div>
+    <div class="col-sm-5">
+        <h4>"FlyRight saved my life. I would have had no idea that XYZ airline was horrible until seeing the votes and reviews. Thanks FlyRight!"</h4>
+        <h4>-Kellogg Student '20</h4>
+    </div>
+</div>
