@@ -10,11 +10,11 @@
         <label>Love or hate it?</label>
         </div>
         <div class="form-check form-check-inline">
-         <input class="form-check-input" type="radio" id="love" name="love" value="true">
+         <input class="form-check-input" type="radio" name="love" value="true">
          <label class="form-check-label" for="inlineRadio1">Loved it!</label>
         </div>
         <div class="form-check form-check-inline">
-         <input class="form-check-input" type="radio" id="hate" name="hate" value="false">
+         <input class="form-check-input" type="radio" name="love" value="false">
          <label class="form-check-label" for="inlineRadio2">Hated it!</label>
         </div>
     </div>
@@ -22,5 +22,5 @@
     <label>Provide Testimonial</label>
     <textarea class="form-control" rows="4" name="testimonial"></textarea>
   </div>
-  <button href="/airlines/<%= @airline[:id] %>/votes/create" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

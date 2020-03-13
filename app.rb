@@ -29,10 +29,16 @@ get "/" do
 end
 
 get "/airlines/:id" do
-    @airline = airlines_table.where(id: params[:id]).to_a[0]
+    puts "params: #{params}"
 
+    @users_table = users_table
+    @airline = airlines_table.where(id: params[:id]).to_a[0]
+    pp @airline
+
+    @votes = votes_table.where(airline_id: @airline[:id]).to_a
     @love_count = votes_table.where(airline_id: @airline[:id], love: true).count
     @hate_count = votes_table.where(airline_id: @airline[:id], love: false).count
+
     view "airline"
 end
 

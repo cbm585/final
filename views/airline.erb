@@ -1,19 +1,31 @@
     <div class="row">
         <div class="col-sm-6">
             <h1><%= @airline[:name] %></h1>
+
             <h2>Overall Perception:</h2>
-            <i class="far fa-smile fa-3x"></i>
-            <p><small>Love it!</small></p>
-            <p><%= @love_count %></p>
-            <i class="fas fa-heart-broken fa-3x"></i>
-            <p><small>Hate it!</small></p>
-            <p><%= @hate_count %></p>
+            
+            <div class="media">
+                <div>
+                    <i class="far fa-smile fa-3x"></i>
+                    <p><small>Love it!</small></p>
+                </div>
+                <div> 
+                    <p><%= @love_count %><p>
+                </div>
+                
+                <i class="fas fa-heart-broken fa-3x"></i>
+                <p><small>Hate it!</small></p>
+                <p><%= @hate_count %></p>
+            </div>
+            
             <h2>Airline Background:</h2> 
+            
             <p>Year Founded: <%= @airline[:founded] %></p>
             <p>Headquarters Location: <%= @airline[:hq] %></p>
             <p>CEO: <%= @airline[:ceo] %></p>
             <p>Number of Destinations: <%= @airline[:destinations] %></p>
         </div>
+        
         <div class="col-sm-6">
             <h2>Testimonials:</h2>
         </div>
