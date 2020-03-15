@@ -18,6 +18,10 @@ airlines_table = DB.from(:airlines)
 votes_table = DB.from(:votes)
 users_table = DB.from(:users)
 
+account_sid = ENV["FRIEND"]
+auth_token = ENV["BEST"]
+client = Twilio::REST::Client.new(account_sid,auth_token)
+
 before do
     @current_user = users_table.where(id: session["user_id"]).to_a[0]
 end
@@ -60,6 +64,12 @@ get "/airlines/:id/votes/create" do
         date: params["date"],
         love: params["love"],
         testimonial: params["testimonial"],
+    )
+
+    client.messages.create(
+    from: "+13105077468",
+    to:"+15165094493",
+    body:"Someone voted on an airline!"
     )
 
     view "create_vote"

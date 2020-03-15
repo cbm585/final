@@ -31,7 +31,7 @@
         <div class="col-sm-5">
             <h3>Testimonials:</h3>
                 <div class="media">
-                    <div class="col-sm-2">
+                    <div class="col-sm-2.5">
                         <% for vote in @votes %>
                             <div class="media">
                                 <% if vote[:love] %>
@@ -49,7 +49,7 @@
                                 <b><%= @users_table.where(id: vote[:user_id]).to_a[0][:name] %></b> <i>Travelled on: <%= vote[:date] %></i>  
                                 </div>               
                                 <div> 
-                                <%= vote[:testimonial] %>
+                                "<%= vote[:testimonial] %>"
                                 </div>
                             </div>
                         <% end %>
