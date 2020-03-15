@@ -36,8 +36,8 @@ get "/airlines/:id" do
     pp @airline
 
     @votes = votes_table.where(airline_id: @airline[:id]).to_a
-    @love_count = votes_table.where(airline_id: @airline[:id], love: true).count
-    @hate_count = votes_table.where(airline_id: @airline[:id], love: false).count
+    @love_count = votes_table.where(airline_id: @airline[:id], love: "true").count
+    @hate_count = votes_table.where(airline_id: @airline[:id], love: "false").count
 
     view "airline"
 end
